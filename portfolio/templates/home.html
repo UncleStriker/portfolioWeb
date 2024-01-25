@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="row bg-black">
+    <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <img src="{% static 'portfolio/yo2-bl.jpg' %}" class="mi-imagen">
+        <style>
+            .mi-imagen {
+                width: 60%; /* Ancho deseado */
+                height: 60%; /* Altura deseada */
+                object-fit: cover; /* ajusta la imagen al tamaño original */
+                object-position: middle; /* ajusta la imagen al medio */
+                border-radius: 50%; /*Para hacer la imagen redonda */
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra opcional */
+            }
+        </style>
+    </div>
+    <div class="col-md-8 my-auto">
+        <h1>I am <strong>Bayron Leyton</strong></h1>
+        <h3>IT Technician in Cibersecurity</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium labore dignissimos perspiciatis quas reiciendis. Voluptatibus deserunt porro praesentium voluptates numquam, quis unde dolores, adipisci quibusdam incidunt vitae. Obcaecati doloribus suscipit quibusdam iusto quidem? Aspernatur ipsum vero quod dignissimos aperiam obcaecati quibusdam. Vero quasi nisi corporis voluptatum soluta iure sequi illum, magni suscipit neque itaque odit commodi repellendus consectetur saepe et esse aliquam similique dolores quidem veniam ad id nobis? Iste hic debitis odio dolorum impedit corrupti accusantium labore beatae aliquam autem, nostrum delectus harum sint animi officiis sapiente quo sed corporis? Voluptatem, eligendi! Cumque cupiditate a, eligendi tenetur ipsa culpa!</p>
+        <a href="{% static 'portfolio/Portfolio bayron_compressed.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3" target="_blank">Descargar Porfolio</a>
+    </div>
+</header>
+
+
+
+<div class="row my-4 text-center">
+
+    <h3>My projects</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, esse?</p>
+{%for project in projects%}
+
+<div class="col-md-4 p-4">
+    <div class="card bg-black card-project">
+        <img src={{project.image.url}} alt={{project.title}} class="card-img-top"></img>
+        <div class="card-body">
+            <h2>{{project.title}}</h2>
+            <p>{{project.description}}</p>
+            
+            
+            
+                {% if project.url %}
+                <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{project.url}}</a>
+                {% endif %}
+            
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}
+
+</div>
